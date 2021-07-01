@@ -1,0 +1,22 @@
+{
+  "name": "weather-build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AhmedELH/Weather.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AhmedELH/Weather/issues"
+  },
+  "homepage": "https://github.com/AhmedELH/Weather#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
