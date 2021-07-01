@@ -16,9 +16,10 @@ window.addEventListener('load', () => {
     const windDir = document.querySelector('.summary-wind__direction');
     const windSpeed = document.querySelector('.summary-wind__speed');
     const feelsLike = document.querySelector('.feels-like');
-    const locationTime = document.querySelector('.location-time');
-    const maxDeg = document.querySelector('.summary-temperature__max');
-    
+    const locationTime = document.querySelector('.date');
+    const maxDeg = document.querySelector('.max-deg');
+    const minDeg = document.querySelector('.min-deg');
+
 
 
     const myKey = "9fd7e84f84626f28199be3bc384da8f9"
@@ -39,15 +40,15 @@ window.addEventListener('load', () => {
                 })
                 .then(data => {
 
-                    
+
 
 
 
                     const { temp, clouds, humidity, pressure, feels_like, wind_speed, wind_deg, uvi, dt, visibility } = data.current;
                     const { description, icon } = data.current.weather[0];
-                    const { max } = data.daily[0].temp;
-                    
- 
+                    const { max, min } = data.daily[0].temp;
+
+
                     //Set DOM elements
                     temperatureDegree.textContent = Math.floor(temp);
                     temperatureDescription.textContent = capitalizeFirstLetter(description);
@@ -58,11 +59,12 @@ window.addEventListener('load', () => {
                     windSpeed.textContent = wind_speed + " Km/h";
                     windDegree.textContent = wind_deg + "°";
                     uvIndex.textContent = uvi;
-                    feelsLike.textContent = "Feels like " + Math.floor(feels_like) + "°";
+                    feelsLike.textContent = "Feels like: " + Math.floor(feels_like) + "°";
                     maxDeg.textContent = Math.floor(max) + "°";
-                   locationTime.textContent = timeConverter(dt);
-                   visibilityLevel.textContent = visibility;
-                    
+                    minDeg.textContent = Math.floor(min) + "°/";
+                    locationTime.textContent = timeConverter(dt);
+                    visibilityLevel.textContent = visibility;
+
 
                     //Set icon
                     setIcons(icon, document.querySelector('.icon'));
@@ -107,20 +109,20 @@ window.addEventListener('load', () => {
 
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
-      }
-      
+    }
 
-    function timeConverter(UNIX_timestamp){
+
+    function timeConverter(UNIX_timestamp) {
         var a = new Date(UNIX_timestamp * 1000);
-        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         var year = a.getFullYear();
         var month = months[a.getMonth()];
         var date = a.getDate();
         var hour = a.getHours();
         var min = a.getMinutes();
-        var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min  ;
+        var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min;
         return time;
-      }
+    }
 
     function setIcons(icon, iconID) {
         const skycons = new Skycons({ color: "white" });
