@@ -162,17 +162,16 @@ body {
   align-self: center;
   width: 90%;
   margin-top: 30px;
-  margin-left: 15%;
   padding-bottom: 50px;
 }
 
 input.search-bar {
-  border-radius: 70px;
+  border-radius: 1rem;
   outline: none;
   border: none;
-  height: 90%;
-  width: 70%;
-  padding-left: 10px;
+  height: 2.2rem;
+  width: 12.5rem;
+  padding-left: 12px;
   background: azure;
   font-weight: 600;
 }
@@ -191,6 +190,9 @@ input.search-bar:focus {
   height: 2rem;
   background: azure;
   cursor: pointer;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.042);
 }
 
 .search-btn:hover {
@@ -362,7 +364,8 @@ h1 {
   }
 
   input.search-bar {
-    height: 30px;
+    height: 2rem;
     margin-top: 20px;
+    width: 20rem;
   }
 }
