@@ -19,7 +19,7 @@ window.addEventListener('load', () => {
     const locationTime = document.querySelector('.date');
     const maxDeg = document.querySelector('.max-deg');
     const minDeg = document.querySelector('.min-deg');
-
+const maxTemp = document.querySelector('.summary-temperature__max');
 
 
 
@@ -77,6 +77,7 @@ window.addEventListener('load', () => {
                 uvIndex.textContent = uvi;
                 feelsLike.textContent = "Feels like: " + Math.floor(feels_like) + "°";
                 maxDeg.textContent = Math.floor(max) + "°";
+                maxTemp.textContent = Math.floor(max) + "°";
                 minDeg.textContent = Math.floor(min) + "°/";
                 locationTime.textContent = timeConverter(dt);
                 visibilityLevel.textContent = visibility;

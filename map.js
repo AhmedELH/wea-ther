@@ -3,7 +3,7 @@ navigator.geolocation.getCurrentPosition(position => {
     lat = position.coords.latitude;
 
 
-    var mymap = L.map('mapid').setView([lat, long], 10);
+    var mymap = L.map('mapid').setView([lat, long], 5);
     const myKey = "9fd7e84f84626f28199be3bc384da8f9";
 
 
@@ -28,6 +28,7 @@ navigator.geolocation.getCurrentPosition(position => {
 
 
         weatherUpdate();
+        
     }
 
     mymap.on('click', onMapClick);
