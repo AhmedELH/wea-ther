@@ -32,3 +32,5 @@ navigator.geolocation.getCurrentPosition(position => {
 
     mymap.on('click', onMapClick);
 });
+
+

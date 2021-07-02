@@ -180,5 +180,4 @@ function setIcons(icon, iconID) {
     return skycons.set(iconID, Skycons[currentIcon]);
 
 
-
 }

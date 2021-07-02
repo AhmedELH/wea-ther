@@ -39,7 +39,6 @@ window.addEventListener('load', () => {
             apix = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&exclude=hourly,minutely&units=metric&appid=${myKey}`;
 
 
-
             weatherUpdate();
 
 
