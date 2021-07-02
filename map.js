@@ -41,7 +41,7 @@ navigator.geolocation.getCurrentPosition(position => {
 let weather = {
     "apiKey": "9fd7e84f84626f28199be3bc384da8f9",
     fetchWeather: function (city) {
-        fetch("http://api.openweathermap.org/data/2.5/weather?q="
+        fetch("https://api.openweathermap.org/data/2.5/weather?q="
             + city
             + "&units=metric&appid=" + this.apiKey)
             .then((response) => response.json())
