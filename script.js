@@ -22,89 +22,103 @@ window.addEventListener('load', () => {
 
 
 
+
+
     const myKey = "9fd7e84f84626f28199be3bc384da8f9"
+
+
+
+
 
     if (navigator.geolocation) {
 
         navigator.geolocation.getCurrentPosition(position => {
             long = position.coords.longitude;
             lat = position.coords.latitude;
-
-            const api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=hourly,minutely&units=metric&appid=${myKey}`;
-            const apix = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&exclude=hourly,minutely&units=metric&appid=${myKey}`;
-
-
-            fetch(api)
-                .then(response => {
-                    return response.json();
-                })
-                .then(data => {
+            api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=hourly,minutely&units=metric&appid=${myKey}`;
+            apix = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&exclude=hourly,minutely&units=metric&appid=${myKey}`;
 
 
 
+            weatherUpdate();
 
 
-                    const { temp, clouds, humidity, pressure, feels_like, wind_speed, wind_deg, uvi, dt, visibility } = data.current;
-                    const { description, icon } = data.current.weather[0];
-                    const { max, min } = data.daily[0].temp;
+        });
 
-
-                    //Set DOM elements
-                    temperatureDegree.textContent = Math.floor(temp);
-                    temperatureDescription.textContent = capitalizeFirstLetter(description);
-                    locationTimezone.textContent = data.timezone;
-                    cloudsVisible.textContent = clouds + "%";
-                    humidityLevel.textContent = humidity;
-                    pressureLevel.textContent = pressure;
-                    windSpeed.textContent = wind_speed + " Km/h";
-                    windDegree.textContent = wind_deg + "°";
-                    uvIndex.textContent = uvi;
-                    feelsLike.textContent = "Feels like: " + Math.floor(feels_like) + "°";
-                    maxDeg.textContent = Math.floor(max) + "°";
-                    minDeg.textContent = Math.floor(min) + "°/";
-                    locationTime.textContent = timeConverter(dt);
-                    visibilityLevel.textContent = visibility;
-
-
-                    //Set icon
-                    setIcons(icon, document.querySelector('.icon'));
-                    setIcons("03d", document.querySelector('.icon__cloud'));
-                    setIcons("50d", document.querySelector('.icon__pressure'));
-                    setIcons("09d", document.querySelector('.icon__humidity'));
+    }
 
 
 
 
-                    //Celsius to Farenheit
+    function weatherUpdate() {
 
-                    let Farenheit = (temp * 9 / 5) + 32;
+        fetch(api)
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
 
-                    //Switch between Celsius/Farenheit
-                    temperatureSection.addEventListener('click', () => {
-                        if (temperatureSpan.textContent === "°C") {
-                            temperatureSpan.textContent = "°F";
-                            temperatureDegree.textContent = Math.floor(Farenheit);
-                        } else {
-                            temperatureSpan.textContent = "°C";
-                            temperatureDegree.textContent = Math.floor(temp);
 
-                        }
 
-                    });
 
+                const { temp, clouds, humidity, pressure, feels_like, wind_speed, wind_deg, uvi, dt, visibility } = data.current;
+                const { description, icon } = data.current.weather[0];
+                const { max, min } = data.daily[0].temp;
+
+
+                //Set DOM elements
+                temperatureDegree.textContent = Math.floor(temp);
+                temperatureDescription.textContent = capitalizeFirstLetter(description);
+                locationTimezone.textContent = data.timezone;
+                cloudsVisible.textContent = clouds + "%";
+                humidityLevel.textContent = humidity + "%";
+                pressureLevel.textContent = pressure;
+                windSpeed.textContent = wind_speed + " Km/h";
+                windDegree.textContent = wind_deg + "°";
+                uvIndex.textContent = uvi;
+                feelsLike.textContent = "Feels like: " + Math.floor(feels_like) + "°";
+                maxDeg.textContent = Math.floor(max) + "°";
+                minDeg.textContent = Math.floor(min) + "°/";
+                locationTime.textContent = timeConverter(dt);
+                visibilityLevel.textContent = visibility;
+
+
+                //Set icon
+                setIcons(icon, document.querySelector('.icon'));
+                setIcons("03d", document.querySelector('.icon__cloud'));
+                setIcons("50d", document.querySelector('.icon__pressure'));
+                setIcons("09d", document.querySelector('.icon__humidity'));
+
+
+
+
+                //Celsius to Farenheit
+
+                let Farenheit = (temp * 9 / 5) + 32;
+
+                //Switch between Celsius/Farenheit
+                temperatureSection.addEventListener('click', () => {
+                    if (temperatureSpan.textContent === "°C") {
+                        temperatureSpan.textContent = "°F";
+                        temperatureDegree.textContent = Math.floor(Farenheit);
+                    } else {
+                        temperatureSpan.textContent = "°C";
+                        temperatureDegree.textContent = Math.floor(temp);
+
+                    }
 
                 });
 
-            fetch(apix)
-                .then(response => {
-                    return response.json();
-                })
-                .then(datax => {
 
-                    locationSpecific.textContent = datax.name;
-                })
-        });
+            });
+        fetch(apix)
+            .then(response => {
+                return response.json();
+            })
+            .then(datax => {
 
+                locationSpecific.textContent = datax.name;
+            })
     }
 
     function capitalizeFirstLetter(string) {
@@ -118,8 +132,8 @@ window.addEventListener('load', () => {
         var year = a.getFullYear();
         var month = months[a.getMonth()];
         var date = a.getDate();
-        var hour = a.getHours();
-        var min = a.getMinutes();
+        var hour = a.getHours() < 10 ? '0' + a.getHours() : a.getHours();
+        var min = a.getMinutes() < 10 ? '0' + a.getMinutes() : a.getMinutes();
         var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min;
         return time;
     }

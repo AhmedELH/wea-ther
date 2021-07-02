@@ -16,6 +16,16 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
 <link rel="icon" href="favicon/animated_favicon1.gif" type="image/x-icon">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+crossorigin=""/>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+crossorigin=""></script>
+
+
 <title>Weather Now</title>
 </head>
 <body>
@@ -62,6 +72,15 @@
 
             </div>
 
+            <div class="card card__search">
+                <h2>Search for a city..</h2>
+                <div class="search">
+                    <input placeholder="Enter a city name.." type="text" id='nameInput' onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))' class="search-bar">
+                    <button class="search-btn"><svg class="search-btn-icon" stroke="currentColor" fill="currentColor" stroke-width="0" version="1.1" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M8 0c-2.761 0-5 2.239-5 5 0 5 5 11 5 11s5-6 5-11c0-2.761-2.239-5-5-5zM8 8.063c-1.691 0-3.063-1.371-3.063-3.063s1.371-3.063 3.063-3.063 3.063 1.371 3.063 3.063-1.371 3.063-3.063 3.063zM6.063 5c0-1.070 0.867-1.938 1.938-1.938s1.938 0.867 1.938 1.938c0 1.070-0.867 1.938-1.938 1.938s-1.938-0.867-1.938-1.938z"></path></svg></button>
+
+                </div>
+            </div>
+
             <div class="card card__pressure" data-aos="flip-up">
             
                 <h3>Pressure</h3>
@@ -103,7 +122,14 @@
            
         </div>
 
+        </div>
+
+      
+
+    
     </div>
+
+    <div id="mapid" class="card"></div>
     
     <script src="script.js"></script>
     <script src="skycons.js"></script>
@@ -112,9 +138,13 @@
       AOS.init();
     </script>
     <script>
+        
         function Refresh() {
-          window.parent.location = window.parent.location.href;
+            window.parent.location = window.parent.location.href;
         }
-      </script>
+        </script>
+<script src="map.js"></script>   
+<script src="search.js"></script>
+ 
 </body>
 </html>

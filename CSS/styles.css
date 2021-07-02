@@ -113,6 +113,7 @@ body {
 
 .temperature:hover {
   color: #e73c7e;
+  cursor: pointer;
 }
 
 .location-info {
@@ -134,16 +135,78 @@ body {
   font-weight: 600;
 }
 
+.min-deg {
+  font-weight: 600;
+}
+
 .icon {
   width: 45%;
   padding-right: 10px;
 }
+
+
 
 .icon__cloud,
 .icon__humidity,
 .icon__pressure {
   width: 70%;
 }
+
+
+/* Search */
+
+.card__search {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.search {
+  align-self: center;
+  width: 90%;
+  margin-top: 30px;
+  margin-left: 15%;
+  padding-bottom: 50px;
+}
+
+input.search-bar {
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  height: 90%;
+  width: 70%;
+  padding-left: 10px;
+  background: azure;
+  font-weight: 600;
+}
+
+.search-btn {
+  border: none;
+  outline: none;
+  margin-left: 5px;
+  border-radius: 100px;
+  width: 2rem;
+  height: 2rem;
+  background: azure;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+
+  background-color: #e73c7e;
+}
+
+.search-btn-icon {
+  fill: midnightblue;
+}
+
+#mapid {
+  height: 300px;
+  width: 700px;
+  margin-bottom: 50px;
+}
+
+
 
 /* Summary */
 
@@ -214,6 +277,8 @@ h1 {
     display: grid;
     grid-template-columns: 500px 300px 300px;
     grid-template-rows: 300px 300px;
+    row-gap: 5px;
+    column-gap: 1px;
     margin: 0;
     padding: 0;
     align-items: center;
@@ -282,4 +347,5 @@ h1 {
   .card__pressure {
     grid-column: 2;
   }
+
 }
