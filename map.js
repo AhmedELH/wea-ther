@@ -3,7 +3,7 @@ navigator.geolocation.getCurrentPosition(position => {
     lat = position.coords.latitude;
 
 
-    var mymap = L.map('mapid').setView([lat, long], 4);
+    var mymap = L.map('mapid').setView([lat, long], 10);
     const myKey = "9fd7e84f84626f28199be3bc384da8f9";
 
 
@@ -18,7 +18,7 @@ navigator.geolocation.getCurrentPosition(position => {
     function onMapClick(e) {
         popup
             .setLatLng(e.latlng)
-            .setContent("You clicked the map at " + e.latlng.toString())
+            .setContent("Weather at " + e.latlng.toString())
             .openOn(mymap);
         latitude = e.latlng.lat;
         longitude = e.latlng.lng;
