@@ -41,7 +41,7 @@ navigator.geolocation.getCurrentPosition(position => {
 let weather = {
     "apiKey": "9fd7e84f84626f28199be3bc384da8f9",
     fetchWeather: function (city) {
-        fetch("https://api.openweathermap.org/data/2.5/weather?q="
+        fetch("http://api.openweathermap.org/data/2.5/weather?q="
             + city
             + "&units=metric&appid=" + this.apiKey)
             .then((response) => response.json())
@@ -116,6 +116,7 @@ function weatherUpdate() {
             const maxDeg = document.querySelector('.max-deg');
             const minDeg = document.querySelector('.min-deg');
             const locationCountry = document.querySelector('.location-name');
+            const maxTemp = document.querySelector('.summary-temperature__max');
             
 
 
@@ -143,6 +144,7 @@ function weatherUpdate() {
             locationTime.textContent = timeConverter(dt);
             visibilityLevel.textContent = visibility;
             locationCountry.textContent = timezone;
+            maxTemp.textContent = Math.floor(max) + "°";
 
 
             //Set icon
