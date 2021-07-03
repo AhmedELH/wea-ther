@@ -26,6 +26,19 @@ h3 {
   font-size: 2rem;
 }
 
+h4 {
+  font-size: 0.9rem;
+}
+
+.banner-text {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.box > p {
+  font-size: 1rem;
+}
+
 /* background */
 
 body {
@@ -150,12 +163,16 @@ body {
   width: 70%;
 }
 
+.box {
+  display: flex;
+  align-items: center;
+}
+
 /* Search */
 
 .card__search {
   display: flex;
   flex-direction: column;
-  order: 5;
 }
 
 .search {
@@ -213,7 +230,6 @@ input.search-bar:focus {
 
 .card__map {
   width: 90%;
-  order: 8;
 }
 
 /* Summary */
@@ -271,6 +287,20 @@ input.search-bar:focus {
 h1 {
   padding: 10px 17px 0 9.9px;
   transform: translateX(-4px);
+}
+
+.weekday-section {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40px 30px 30px 40px;
+  column-gap: 60px;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 10px 0 10px;
+}
+
+.spaceleft {
+  margin-right: 10px;
 }
 
 @media screen and (min-width: 1087px) {
@@ -355,6 +385,17 @@ h1 {
     grid-column: 2;
   }
 
+  .weekdays {
+    grid-column: span 3;
+    width: 1060px;
+    margin-top: 10px;
+    height: 270px;
+  }
+
+  .weekday-section:hover {
+    transform: scale(1.1);
+  }
+
   .card__map {
     width: 1050px;
     grid-column: span 3;
@@ -370,5 +411,29 @@ h1 {
     height: 2rem;
     margin-top: 20px;
     width: 20rem;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+  }
+
+  .weekdays-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .weekday-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-right: 2px solid rgba(255, 255, 255, 0.2);
+    padding-left: 20px;
+    align-items: center;
+  }
+
+  .weekday-last {
+    border: 0;
   }
 }

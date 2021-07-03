@@ -117,6 +117,40 @@ function weatherUpdate() {
             const minDeg = document.querySelector('.min-deg');
             const locationCountry = document.querySelector('.location-name');
             const maxTemp = document.querySelector('.summary-temperature__max');
+            const todayMin = document.querySelector('.today-min');
+const todayMax = document.querySelector('.today-max');
+const cloudsToday = document.querySelector('.clouds-today');
+const humidityToday = document.querySelector('.humidity-today');
+
+const tomorrowMin = document.querySelector('.tomorrow-min');
+const tomorrowMax = document.querySelector('.tomorrow-max');
+const cloudsTomorrow = document.querySelector('.clouds-tomorrow');
+const humidityTomorrow = document.querySelector('.humidity-tomorrow');
+
+const thirdMin = document.querySelector('.third-min');
+const thirdMax = document.querySelector('.third-max');
+const cloudsThird = document.querySelector('.clouds-third');
+const humidityThird = document.querySelector('.humidity-third');
+
+const fourthMin = document.querySelector('.fourth-min');
+const fourthMax = document.querySelector('.fourth-max');
+const cloudsFourth = document.querySelector('.clouds-fourth');
+const humidityFourth = document.querySelector('.humidity-fourth');
+
+const fifthMin = document.querySelector('.fifth-min');
+const fifthMax = document.querySelector('.fifth-max');
+const cloudsFifth = document.querySelector('.clouds-fifth');
+const humidityFifth = document.querySelector('.humidity-fifth');
+
+const sixthMin = document.querySelector('.sixth-min');
+const sixthMax = document.querySelector('.sixth-max');
+const cloudsSixth = document.querySelector('.clouds-sixth');
+const humiditySixth = document.querySelector('.humidity-sixth');
+
+const seventhMin = document.querySelector('.seventh-min');
+const seventhMax = document.querySelector('.seventh-max');
+const cloudsSeventh = document.querySelector('.clouds-seventh');
+const humiditySeventh = document.querySelector('.humidity-seventh');
             
 
 
@@ -146,6 +180,44 @@ function weatherUpdate() {
             locationCountry.textContent = timezone;
             maxTemp.textContent = Math.floor(max) + "°";
 
+            todayMin.textContent = Math.floor(data.daily[0].temp.min) + "°/";
+            todayMax.textContent = Math.floor(data.daily[0].temp.max) + "°";
+            cloudsToday.textContent = data.daily[0].clouds +"%";
+            humidityToday.textContent = data.daily[0].humidity +"%";
+
+            tomorrowMin.textContent = Math.floor(data.daily[1].temp.min) + "°/";
+            tomorrowMax.textContent = Math.floor(data.daily[1].temp.max) + "°";
+            cloudsTomorrow.textContent = data.daily[1].clouds +"%";
+            humidityTomorrow.textContent = data.daily[1].humidity +"%";
+
+            thirdMin.textContent = Math.floor(data.daily[2].temp.min) + "°/";
+            thirdMax.textContent = Math.floor(data.daily[2].temp.max) + "°";
+            cloudsThird.textContent = data.daily[2].clouds +"%";
+            humidityThird.textContent = data.daily[2].humidity +"%";
+
+            fourthMin.textContent = Math.floor(data.daily[3].temp.min) + "°/";
+            fourthMax.textContent = Math.floor(data.daily[3].temp.max) + "°";
+            cloudsFourth.textContent = data.daily[3].clouds +"%";
+            humidityFourth.textContent = data.daily[3].humidity +"%";
+
+            fifthMin.textContent = Math.floor(data.daily[4].temp.min) + "°/";
+            fifthMax.textContent = Math.floor(data.daily[4].temp.max) + "°";
+            cloudsFifth.textContent = data.daily[4].clouds +"%";
+            humidityFifth.textContent = data.daily[4].humidity +"%";
+
+            sixthMin.textContent = Math.floor(data.daily[5].temp.min) + "°/";
+            sixthMax.textContent = Math.floor(data.daily[5].temp.max) + "°";
+            cloudsSixth.textContent = data.daily[5].clouds +"%";
+            humiditySixth.textContent = data.daily[5].humidity +"%";
+
+            seventhMin.textContent = Math.floor(data.daily[6].temp.min) + "°/";
+            seventhMax.textContent = Math.floor(data.daily[6].temp.max) + "°";
+            cloudsSeventh.textContent = data.daily[6].clouds +"%";
+            humiditySeventh.textContent = data.daily[6].humidity +"%";
+
+
+            celsiustof();
+
 
             //Set icon
             setIcons(icon, document.querySelector('.icon'));
@@ -156,22 +228,7 @@ function weatherUpdate() {
 
 
 
-            //Celsius to Farenheit
-
-            let Farenheit = (temp * 9 / 5) + 32;
-
-            //Switch between Celsius/Farenheit
-            temperatureSection.addEventListener('click', () => {
-                if (temperatureSpan.textContent === "°C") {
-                    temperatureSpan.textContent = "°F";
-                    temperatureDegree.textContent = Math.floor(Farenheit);
-                } else {
-                    temperatureSpan.textContent = "°C";
-                    temperatureDegree.textContent = Math.floor(temp);
-
-                }
-
-            });
+           
 
 
         });
@@ -223,5 +280,28 @@ function setIcons(icon, iconID) {
     return skycons.set(iconID, Skycons[currentIcon]);
 
 
+}
+
+function celsiustof() {
+     //Celsius to Farenheit
+
+     let Farenheit = (temp * 9 / 5) + 32;
+    
+
+     //Switch between Celsius/Farenheit
+     temperatureSection.addEventListener('click', () => {
+         if (temperatureSpan.textContent === "°C") {
+             temperatureSpan.textContent = "°F";
+             temperatureDegree.textContent = Math.floor(Farenheit);
+            
+
+
+         } else {
+             temperatureSpan.textContent = "°C";
+             temperatureDegree.textContent = Math.floor(temp);
+             
+         }
+
+     });
 }
 
