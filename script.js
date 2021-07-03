@@ -93,7 +93,6 @@ const humiditySeventh = document.querySelector('.humidity-seventh');
             .then(data => {
 
 
-console.log(data);
 
                 const { temp, clouds, humidity, pressure, feels_like, wind_speed, wind_deg, uvi, dt, visibility } = data.current;
                 const { description, icon } = data.current.weather[0];

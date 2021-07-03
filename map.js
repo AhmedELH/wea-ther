@@ -216,7 +216,6 @@ const humiditySeventh = document.querySelector('.humidity-seventh');
             humiditySeventh.textContent = data.daily[6].humidity +"%";
 
 
-            celsiustof();
 
 
             //Set icon
@@ -226,7 +225,87 @@ const humiditySeventh = document.querySelector('.humidity-seventh');
             setIcons("09d", document.querySelector('.icon__humidity'));
 
 
-
+            let Farenheit = (temp * 9 / 5) + 32;
+            let FarenheitMin = (min * 9 / 5) +32;
+                       let FarenheitMax = (max * 9 / 5) +32;
+                       let FarenheitFeels = (feels_like * 9 / 5) +32;
+                       let FarenheitMaxTemp = (max * 9 / 5) +32;
+       
+                       let FarenheitTodayMin = FarenheitTo(data.daily[0].temp.min);
+                       let FarenheitTodayMax = FarenheitTo(data.daily[0].temp.max);
+       
+                       let FarenheitTomorrowMin = FarenheitTo(data.daily[1].temp.min);
+                       let FarenheitTomorrowMax = FarenheitTo(data.daily[1].temp.max);
+       
+                       let FarenheitThirdMin = FarenheitTo(data.daily[2].temp.min);
+                       let FarenheitThirdMax = FarenheitTo(data.daily[2].temp.max);
+       
+                       let FarenheitFourthMin = FarenheitTo(data.daily[3].temp.min);
+                       let FarenheitFourthMax = FarenheitTo(data.daily[3].temp.max);
+       
+                       let FarenheitFifthMin = FarenheitTo(data.daily[4].temp.min);
+                       let FarenheitFifthMax = FarenheitTo(data.daily[4].temp.max);
+       
+                       let FarenheitSixthMin = FarenheitTo(data.daily[5].temp.min);
+                       let FarenheitSixthMax = FarenheitTo(data.daily[5].temp.max);
+       
+                       let FarenheitSeventhMin = FarenheitTo(data.daily[6].temp.min);
+                       let FarenheitSeventhMax = FarenheitTo(data.daily[6].temp.max);
+           
+       
+            //Switch between Celsius/Farenheit
+            temperatureSection.addEventListener('click', () => {
+                if (temperatureSpan.textContent === "°C") {
+                    temperatureSpan.textContent = "°F";
+                    temperatureDegree.textContent = Math.floor(Farenheit);
+                    minDeg.textContent = Math.floor(FarenheitMin)+ "°/";
+                    maxDeg.textContent = Math.floor(FarenheitMax)+ "°";
+                    feelsLike.textContent = "Feels like: " + Math.floor(FarenheitFeels)+ "°";
+                    maxTemp.textContent = Math.floor(FarenheitMaxTemp)+ "°";
+                    todayMin.textContent = Math.floor(FarenheitTodayMin) + "°/";
+                    todayMax.textContent = Math.floor(FarenheitTodayMax) + "°";
+                    tomorrowMin.textContent = Math.floor(FarenheitTomorrowMin) + "°/";
+                    tomorrowMax.textContent = Math.floor(FarenheitTomorrowMax) + "°";
+                    thirdMin.textContent = Math.floor(FarenheitThirdMin) + "°/";
+                    thirdMax.textContent = Math.floor(FarenheitThirdMax) + "°";
+                    fourthMin.textContent = Math.floor(FarenheitFourthMin) + "°/";
+                    fourthMax.textContent = Math.floor(FarenheitFourthMax) + "°";
+                    fifthMin.textContent = Math.floor(FarenheitFifthMin) + "°/";
+                    fifthMax.textContent = Math.floor(FarenheitFifthMax) + "°";
+                    sixthMin.textContent = Math.floor(FarenheitSixthMin) + "°/";
+                    sixthMax.textContent = Math.floor(FarenheitSixthMax) + "°";
+                    seventhMin.textContent = Math.floor(FarenheitSeventhMin) + "°/";
+                    seventhMax.textContent = Math.floor(FarenheitSeventhMax) + "°";
+                   
+                    
+       
+       
+                } else {
+                    temperatureSpan.textContent = "°C";
+                    temperatureDegree.textContent = Math.floor(temp);
+                     minDeg.textContent = Math.floor(min)+ "°/";
+                               maxDeg.textContent = Math.floor(max)+ "°";
+                               maxTemp.textContent = Math.floor(max)+ "°";
+                               feelsLike.textContent = "Feels like: " + Math.floor(feels_like) + "°";
+                               todayMin.textContent = Math.floor(data.daily[0].temp.min) + "°/";
+                               todayMax.textContent = Math.floor(data.daily[0].temp.max) + "°";
+                               tomorrowMin.textContent = Math.floor(data.daily[1].temp.min) + "°/";
+                               tomorrowMax.textContent = Math.floor(data.daily[1].temp.max) + "°";
+                               thirdMin.textContent = Math.floor(data.daily[2].temp.min) + "°/";
+                               thirdMax.textContent = Math.floor(data.daily[2].temp.max) + "°";
+                               fourthMin.textContent = Math.floor(data.daily[3].temp.min) + "°/";
+                               fourthMax.textContent = Math.floor(data.daily[3].temp.max) + "°";
+                               fifthMin.textContent = Math.floor(data.daily[4].temp.min) + "°/";
+                               fifthMax.textContent = Math.floor(data.daily[4].temp.max) + "°";
+                               sixthMin.textContent = Math.floor(data.daily[5].temp.min) + "°/";
+                               sixthMax.textContent = Math.floor(data.daily[5].temp.max) + "°";
+                               seventhMin.textContent = Math.floor(data.daily[6].temp.min) + "°/";
+                               seventhMax.textContent = Math.floor(data.daily[6].temp.max) + "°";
+       
+                    
+                }
+       
+            });
 
            
 
@@ -282,91 +361,6 @@ function setIcons(icon, iconID) {
 
 }
 
-function celsiustof() {
-     //Celsius to Farenheit
-
-     let Farenheit = (temp * 9 / 5) + 32;
-     let FarenheitMin = (min * 9 / 5) +32;
-                let FarenheitMax = (max * 9 / 5) +32;
-                let FarenheitFeels = (feels_like * 9 / 5) +32;
-                let FarenheitMaxTemp = (max * 9 / 5) +32;
-
-                let FarenheitTodayMin = FarenheitTo(data.daily[0].temp.min);
-                let FarenheitTodayMax = FarenheitTo(data.daily[0].temp.max);
-
-                let FarenheitTomorrowMin = FarenheitTo(data.daily[1].temp.min);
-                let FarenheitTomorrowMax = FarenheitTo(data.daily[1].temp.max);
-
-                let FarenheitThirdMin = FarenheitTo(data.daily[2].temp.min);
-                let FarenheitThirdMax = FarenheitTo(data.daily[2].temp.max);
-
-                let FarenheitFourthMin = FarenheitTo(data.daily[3].temp.min);
-                let FarenheitFourthMax = FarenheitTo(data.daily[3].temp.max);
-
-                let FarenheitFifthMin = FarenheitTo(data.daily[4].temp.min);
-                let FarenheitFifthMax = FarenheitTo(data.daily[4].temp.max);
-
-                let FarenheitSixthMin = FarenheitTo(data.daily[5].temp.min);
-                let FarenheitSixthMax = FarenheitTo(data.daily[5].temp.max);
-
-                let FarenheitSeventhMin = FarenheitTo(data.daily[6].temp.min);
-                let FarenheitSeventhMax = FarenheitTo(data.daily[6].temp.max);
-    
-
-     //Switch between Celsius/Farenheit
-     temperatureSection.addEventListener('click', () => {
-         if (temperatureSpan.textContent === "°C") {
-             temperatureSpan.textContent = "°F";
-             temperatureDegree.textContent = Math.floor(Farenheit);
-             minDeg.textContent = Math.floor(FarenheitMin)+ "°/";
-             maxDeg.textContent = Math.floor(FarenheitMax)+ "°";
-             feelsLike.textContent = "Feels like: " + Math.floor(FarenheitFeels)+ "°";
-             maxTemp.textContent = Math.floor(FarenheitMaxTemp)+ "°";
-             todayMin.textContent = Math.floor(FarenheitTodayMin) + "°/";
-             todayMax.textContent = Math.floor(FarenheitTodayMax) + "°";
-             tomorrowMin.textContent = Math.floor(FarenheitTomorrowMin) + "°/";
-             tomorrowMax.textContent = Math.floor(FarenheitTomorrowMax) + "°";
-             thirdMin.textContent = Math.floor(FarenheitThirdMin) + "°/";
-             thirdMax.textContent = Math.floor(FarenheitThirdMax) + "°";
-             fourthMin.textContent = Math.floor(FarenheitFourthMin) + "°/";
-             fourthMax.textContent = Math.floor(FarenheitFourthMax) + "°";
-             fifthMin.textContent = Math.floor(FarenheitFifthMin) + "°/";
-             fifthMax.textContent = Math.floor(FarenheitFifthMax) + "°";
-             sixthMin.textContent = Math.floor(FarenheitSixthMin) + "°/";
-             sixthMax.textContent = Math.floor(FarenheitSixthMax) + "°";
-             seventhMin.textContent = Math.floor(FarenheitSeventhMin) + "°/";
-             seventhMax.textContent = Math.floor(FarenheitSeventhMax) + "°";
-            
-             
-
-
-         } else {
-             temperatureSpan.textContent = "°C";
-             temperatureDegree.textContent = Math.floor(temp);
-              minDeg.textContent = Math.floor(min)+ "°/";
-                        maxDeg.textContent = Math.floor(max)+ "°";
-                        maxTemp.textContent = Math.floor(max)+ "°";
-                        feelsLike.textContent = "Feels like: " + Math.floor(feels_like) + "°";
-                        todayMin.textContent = Math.floor(data.daily[0].temp.min) + "°/";
-                        todayMax.textContent = Math.floor(data.daily[0].temp.max) + "°";
-                        tomorrowMin.textContent = Math.floor(data.daily[1].temp.min) + "°/";
-                        tomorrowMax.textContent = Math.floor(data.daily[1].temp.max) + "°";
-                        thirdMin.textContent = Math.floor(data.daily[2].temp.min) + "°/";
-                        thirdMax.textContent = Math.floor(data.daily[2].temp.max) + "°";
-                        fourthMin.textContent = Math.floor(data.daily[3].temp.min) + "°/";
-                        fourthMax.textContent = Math.floor(data.daily[3].temp.max) + "°";
-                        fifthMin.textContent = Math.floor(data.daily[4].temp.min) + "°/";
-                        fifthMax.textContent = Math.floor(data.daily[4].temp.max) + "°";
-                        sixthMin.textContent = Math.floor(data.daily[5].temp.min) + "°/";
-                        sixthMax.textContent = Math.floor(data.daily[5].temp.max) + "°";
-                        seventhMin.textContent = Math.floor(data.daily[6].temp.min) + "°/";
-                        seventhMax.textContent = Math.floor(data.daily[6].temp.max) + "°";
-
-             
-         }
-
-     });
-}
 
 function FarenheitTo(Deg) {
 
