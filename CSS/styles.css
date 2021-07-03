@@ -420,7 +420,7 @@ h1 {
   .weekdays-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     height: 100%;
   }
 
