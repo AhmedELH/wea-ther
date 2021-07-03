@@ -121,7 +121,7 @@ console.log(data);
                 todayMin.textContent = Math.floor(data.daily[0].temp.min) + "°/";
                 todayMax.textContent = Math.floor(data.daily[0].temp.max) + "°";
                 cloudsToday.textContent = data.daily[0].clouds +"%";
-                humidityToday.textContent = data.daily[0].humidity +"%";
+                humidityToday.textContent = humidity +"%";
 
                 tomorrowMin.textContent = Math.floor(data.daily[1].temp.min) + "°/";
                 tomorrowMax.textContent = Math.floor(data.daily[1].temp.max) + "°";

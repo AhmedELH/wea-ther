@@ -424,7 +424,7 @@ h1 {
   .weekday-section {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     border-right: 2px solid rgba(255, 255, 255, 0.2);
     padding: 0 35px 0 20px;
     align-items: flex-end;

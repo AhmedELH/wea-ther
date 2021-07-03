@@ -23,9 +23,9 @@ var fifthDay = document.querySelector('.fifth-day');
 var sixthDay = document.querySelector('.sixth-day');
 var seventhDay = document.querySelector('.seventh-day');
 
-today.textContent = weekday[d.getDay()];
+today.textContent = "Today";
 
-tomorrow.textContent = weekday[d.getDay() + 1];
+tomorrow.textContent = "Tomorrow";
 thirdDay.textContent = weekday[d.getDay() + 2];
 fourthDay.textContent = weekday [d.getDay() + 3];
 fifthDay.textContent = weekday[d.getDay() + 4];
