@@ -213,6 +213,7 @@ input.search-bar:focus {
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02),
     0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),
     0 22.3px 17.9px rgba(0, 0, 0, 0.042);
+  transform: translateY(2.9px);
 }
 
 .search-btn:hover {
@@ -220,7 +221,7 @@ input.search-bar:focus {
 }
 
 .search-btn-icon {
-  fill: midnightblue;
+  fill: rgb(104, 47, 104);
 }
 
 #mapid {
