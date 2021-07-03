@@ -94,6 +94,7 @@ const humiditySeventh = document.querySelector('.humidity-seventh');
 
 
 
+
                 const { temp, clouds, humidity, pressure, feels_like, wind_speed, wind_deg, uvi, dt, visibility } = data.current;
                 const { description, icon } = data.current.weather[0];
                 const { max, min } = data.daily[0].temp;
@@ -194,7 +195,6 @@ const humiditySeventh = document.querySelector('.humidity-seventh');
                 let FarenheitSeventhMin = FarenheitTo(data.daily[6].temp.min);
                 let FarenheitSeventhMax = FarenheitTo(data.daily[6].temp.max);
 
-                let LocationRefresh = data.timezone;
 
 
 
@@ -222,22 +222,8 @@ const humiditySeventh = document.querySelector('.humidity-seventh');
                         sixthMax.textContent = Math.floor(FarenheitSixthMax) + "°";
                         seventhMin.textContent = Math.floor(FarenheitSeventhMin) + "°/";
                         seventhMax.textContent = Math.floor(FarenheitSeventhMax) + "°";
-                        locationSpecific.textContent = LocationRefresh;
 
-                        temperatureDescription.textContent = capitalizeFirstLetter(description);
-                        locationTimezone.textContent = data.timezone;
-                        cloudsVisible.textContent = clouds + "%";
-                        humidityLevel.textContent = humidity + "%";
-                        pressureLevel.textContent = pressure;
-                        windSpeed.textContent = wind_speed + " Km/h";
-                        windDegree.textContent = wind_deg + "°";
-                        uvIndex.textContent = uvi;
-                        feelsLike.textContent = "Feels like: " + Math.floor(feels_like) + "°";
-                        maxDeg.textContent = Math.floor(max) + "°";
-                        maxTemp.textContent = Math.floor(max) + "°";
-                        minDeg.textContent = Math.floor(min) + "°/";
-                        locationTime.textContent = timeConverter(dt);
-                        visibilityLevel.textContent = visibility;
+                
                         
 
 
@@ -264,22 +250,8 @@ const humiditySeventh = document.querySelector('.humidity-seventh');
                         sixthMax.textContent = Math.floor(data.daily[5].temp.max) + "°";
                         seventhMin.textContent = Math.floor(data.daily[6].temp.min) + "°/";
                         seventhMax.textContent = Math.floor(data.daily[6].temp.max) + "°";
-                        locationSpecific.textContent = LocationRefresh;
 
-                        temperatureDescription.textContent = capitalizeFirstLetter(description);
-                        locationTimezone.textContent = data.timezone;
-                        cloudsVisible.textContent = clouds + "%";
-                        humidityLevel.textContent = humidity + "%";
-                        pressureLevel.textContent = pressure;
-                        windSpeed.textContent = wind_speed + " Km/h";
-                        windDegree.textContent = wind_deg + "°";
-                        uvIndex.textContent = uvi;
-                        feelsLike.textContent = "Feels like: " + Math.floor(feels_like) + "°";
-                        maxDeg.textContent = Math.floor(max) + "°";
-                        maxTemp.textContent = Math.floor(max) + "°";
-                        minDeg.textContent = Math.floor(min) + "°/";
-                        locationTime.textContent = timeConverter(dt);
-                        visibilityLevel.textContent = visibility;
+               
 
 
 
