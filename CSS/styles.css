@@ -386,7 +386,8 @@ h1 {
     grid-column: span 3;
     width: 1060px;
     margin-top: 10px;
-    height: 270px;
+    height: 240px;
+    padding-bottom: 30px;
   }
 
   .weekday-section:hover {
@@ -417,16 +418,18 @@ h1 {
   .weekdays-container {
     display: flex;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
     height: 100%;
   }
 
   .weekday-section {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    width: 200px;
+    height: 170px;
+    justify-content: center;
     border-right: 2px solid rgba(255, 255, 255, 0.2);
-    padding: 0 35px 0 20px;
+    padding: 0 34px 0 25px;
     align-items: flex-end;
   }
 
@@ -434,8 +437,14 @@ h1 {
     border: 0;
   }
 
-  .box > svg,
-  img {
+  .box > img {
     margin-right: 5px;
+  }
+  .box > svg {
+    margin-right: 12px;
+  }
+
+  .box__cloud {
+    padding-top: 12px;
   }
 }
